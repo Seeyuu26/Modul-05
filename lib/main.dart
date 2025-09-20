@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -12,8 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Row and Column',
       home: Scaffold(
-        appBar: AppBar(title: const Text('Row and Column')),
-        body: const FirstPage(),
+        appBar: AppBar(title: Text('Row and Column')),
+        body: FirstPage(),
       ),
     );
   }
@@ -34,7 +34,7 @@ class KotakBiruJempol extends StatelessWidget {
         border: Border.all(color: Colors.black, width: 2),
         borderRadius: BorderRadius.circular(12),
       ),
-      child: const Icon(Icons.favorite, color: Colors.white, size: 40),
+      child: Icon(Icons.favorite, color: Colors.white, size: 40),
     );
   }
 }
@@ -53,38 +53,38 @@ class FirstPage extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  const KotakBiruJempol(color: Colors.purple),
-                  const Text('Jepang'),
+                  KotakBiruJempol(color: Colors.purple),
+                  Text('Jepang'),
                 ],
               ),
-              const SizedBox(width: 16),
+              SizedBox(width: 16),
               Column(
                 children: [
-                  const KotakBiruJempol(color: Colors.red),
-                  const Text('China'),
+                  KotakBiruJempol(color: Colors.red),
+                  Text('China'),
                 ],
               ),
-              const SizedBox(width: 16),
+              SizedBox(width: 16),
             ],
           ),
-          const SizedBox(height: 32),
+          SizedBox(height: 32),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Column(
                 children: [
-                  const KotakBiruJempol(color: Colors.green),
-                  const Text('Probolinggo'),
+                  KotakBiruJempol(color: Colors.green),
+                  Text('Probolinggo'),
                 ],
               ),
-              const SizedBox(width: 16),
+              SizedBox(width: 16),
               Column(
                 children: [
-                  const KotakBiruJempol(color: Colors.yellow),
-                  const Text('Malang'),
+                  KotakBiruJempol(color: Colors.yellow),
+                  Text('Malang'),
                 ],
               ),
-              const SizedBox(width: 16),
+              SizedBox(width: 16),
             ],
           ),
         ],
