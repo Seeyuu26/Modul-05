@@ -11,84 +11,73 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Row and Column',
-      home: Scaffold(
-        appBar: AppBar(title: Text('Row and Column')),
-        body: FirstPage(),
-      ),
+      home: Scaffold(body: MusikPage()),
     );
   }
 }
 
-class KotakBiruJempol extends StatelessWidget {
-  final Color color;
-
-  const KotakBiruJempol({super.key, this.color = Colors.blue});
+class MusikPage extends StatelessWidget {
+  const MusikPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      height: 100,
-      decoration: BoxDecoration(
-        color: color,
-        border: Border.all(color: Colors.black, width: 2),
-        borderRadius: BorderRadius.circular(12),
+    return Scaffold(
+      // Tambahkan backgroundColor untuk latar belakang gelap
+      backgroundColor: Colors.grey[800],
+      body: Center(
+        child: Text(
+          "Pemutar Musik",
+          // Ubah warna teks menjadi putih agar kontras dengan latar gelap
+          style: TextStyle(fontSize: 20, color: Colors.white),
+        ),
       ),
-      child: Icon(Icons.favorite, color: Colors.white, size: 40),
+      bottomNavigationBar: buildControlBar(),
     );
   }
 }
 
-class FirstPage extends StatelessWidget {
-  const FirstPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Column(
-                children: [
-                  KotakBiruJempol(color: Colors.purple),
-                  Text('Jepang'),
-                ],
-              ),
-              SizedBox(width: 16),
-              Column(
-                children: [
-                  KotakBiruJempol(color: Colors.red),
-                  Text('China'),
-                ],
-              ),
-              SizedBox(width: 16),
-            ],
+Widget buildControlBar() {
+  return Container(
+    padding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+    // Ubah warna container menjadi sedikit lebih terang dari background
+    color: Colors.grey[900],
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        // Widget children tetap sama
+        Expanded(
+          child: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.shuffle, color: Colors.white),
           ),
-          SizedBox(height: 32),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Column(
-                children: [
-                  KotakBiruJempol(color: Colors.green),
-                  Text('Probolinggo'),
-                ],
-              ),
-              SizedBox(width: 16),
-              Column(
-                children: [
-                  KotakBiruJempol(color: Colors.yellow),
-                  Text('Malang'),
-                ],
-              ),
-              SizedBox(width: 16),
-            ],
+        ),
+        Expanded(
+          child: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.skip_previous, color: Colors.white),
           ),
-        ],
-      ),
-    );
-  }
+        ),
+        Flexible(
+          flex: 2,
+          fit: FlexFit.tight,
+          child: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.play_circle_fill, color: Colors.white, size: 70),
+          ),
+        ),
+        Expanded(
+          child: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.skip_next, color: Colors.white),
+          ),
+        ),
+        Expanded(
+          child: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.repeat, color: Colors.white),
+          ),
+        ),
+      ],
+    ),
+  );
 }
